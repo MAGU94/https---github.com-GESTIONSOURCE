@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('produccion');
   });
 
-  it('should render title', () => {
+  it('deberia renderiza run parrafo', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('produccion app is running!');
+    expect(compiled.querySelector('p')?.textContent).toContain('HOLA MUNDO');
   });
 });

@@ -1,0 +1,25 @@
+<!-- el ngcontainer evita etiquetas innecesarias -->
+<app-listado-generico [listado]="peliculas">
+<ng-container vacio>
+<div>mensaje personalizado apra contenido <b>vacio</b></div>
+
+</ng-container>
+
+    <ng-container contenido>
+        <div *ngFor="let pelicula of peliculas; let index  =index" class="pelicula_contenedor">
+            <!-- el ngfor sirve para iterar una coleccion -->
+            <div>
+                Pelicula {{index}} : {{pelicula.titulo | lowercase}}
+                <button style="margin-left: 1rem" (click)="remover(index)">Remove</button>
+                <!-- estamos creando un binding de eventos para  el boton -->
+            </div>
+            <div>
+                {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" | uppercase}}
+                <!--  esto es un pipe |, sirve para transformar datos, su formato -->
+            </div>
+            <div>
+                {{pelicula.precio | currency}}
+            </div>
+        </div>
+    </ng-container>
+</app-listado-generico>
